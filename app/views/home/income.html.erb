@@ -1,0 +1,39 @@
+<div id="content">
+  <h3>Enter Income Details</h3><br />
+  
+  <%= error_messages_for :income %>
+  <% form_for :income do |f| %>
+
+    <label>Enter Particular</label><br />
+
+    <%= f.text_field :particular %><br /><br />
+
+    <label>Enter Description</label><br />
+
+    <%= f.text_area(:description, :size => "35x3") %><br /><br />
+
+    <label>Enter Amount</label><br />
+
+    <%= f.text_field(:amount, :size=>6, :maxlength=>6) %><br /><br />
+
+    <%= f.submit "Save" %> <br /><br />
+
+  <% end %>
+
+  <% if @all_income %>
+    <table border="2">
+      <tr>
+      <th>Particular</th>
+      <th>Description</th>
+      <th>Amount</th>
+      </tr>
+    <% for all_income in @all_income  %>
+      <tr>
+        <td><%= all_income.particular %></td>
+        <td><%= all_income.description %></td>
+        <td><%= all_income.amount %></td>
+      </tr>
+    <% end %>
+    </table>
+  <% end %>
+</div>

@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>MIEA</title>
+
+    <%= javascript_include_tag :defaults %>
+
+    <%= stylesheet_link_tag "default" %>
+
+    <div id="header-bg">
+      <div id="header">
+        <div id="logo">
+          <h1><a href="#">MIEA<sup></sup></a></h1>
+          <%#*<h2>Designed by FreeCSSTemplates</h2>%>
+        </div>
+        <div id="menu">
+          <ul>
+            <li class="active"><a href="#"> home</a></li>
+            <li><a href="#">Income</a></li>
+            <li><a href="#">Expense</a></li>
+            <li><a href="#">Balance</a></li>
+            <li><a href="#">about</a></li>
+            <li><a href="#">links</a></li>
+            <li><a href="#">contact </a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </head>
+  
+  <body>
+
+    <div id="page">
+
+      <%= yield %>
+
+    </div>
+    
+  </body>
+  
+</html>

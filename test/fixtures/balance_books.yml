@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  income_id: 1
+  expense_id: 1
+  credit_amount: 1
+  debit_amount: 1
+  balance_amount: 1
+
+two:
+  income_id: 1
+  expense_id: 1
+  credit_amount: 1
+  debit_amount: 1
+  balance_amount: 1
