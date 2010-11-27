@@ -6,25 +6,22 @@
 
     <%= stylesheet_link_tag "default" %>
 
-    <div id="header-bg">
-      <div id="header">
-        <div id="logo">
-          <h1><a href="#">MIEA<sup></sup></a></h1>
-          <%#*<h2>Designed by FreeCSSTemplates</h2>%>
-        </div>
-        <div id="menu">
-          <ul>
-            <li class="active"><a href="#"> home</a></li>
-            <li><a href="#">Income</a></li>
-            <li><a href="#">Expense</a></li>
-            <li><a href="#">Balance</a></li>
-            <li><a href="#">about</a></li>
-            <li><a href="#">links</a></li>
-            <li><a href="#">contact </a></li>
-          </ul>
-        </div>
+    <div id="header">
+      <div id="logo">
+        <h1><%= link_to "MIEA", root_path %> </h1>
+        <%#*<h2><a href="http://www.freecsstemplates.org/">By Free CSS Templates</a></h2>%>
+      </div>
+      <div id="menu">
+        <ul>
+          <%= content_tag(:li, link_to("Home", root_path), :class=>(request.path == root_path) ? "current_page_item" : nil) if request.path != root_path %>
+          <%= content_tag(:li, link_to("Income", income_path), :class=>(request.path == income_path) ? "current_page_item" : nil)  %>
+          <%= content_tag(:li, link_to("Expense", expense_path), :class=>(request.path == expense_path) ? "current_page_item" : nil)  %>
+          <%= content_tag(:li, link_to("Balance", view_balance_book_path), :class=>(request.path == view_balance_book_path) ? "current_page_item" : nil)  %>
+          <li><a href="#">Contact</a></li>
+        </ul>
       </div>
     </div>
+
   </head>
   
   <body>
@@ -33,6 +30,11 @@
 
       <%= yield %>
 
+    </div>
+    <br /><br />
+    <div id="footer">
+      <p id="legal">&copy;2007 Boorish. All Rights Reserved. | Designed by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a></p>
+      <p id="links"><%= link_to("Logout", logout_path) if logged_in? %></p>
     </div>
     
   </body>

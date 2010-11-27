@@ -1,22 +1,26 @@
-<h3>Balance Book</h3><br />
+<div id="content">
+  <h3>Balance Book</h3><br />
 
-<table border="2">
-  <tr>
-    <th>Income Id</th>
-    <th>Expense Id</th>
-    <th>Credit Amount</th>
-    <th>Debit Amount</th>
-    <th>Balance</th>
-    <th>Created at</th>
-  </tr>
-  <% for records in @all_records %>
-  <tr>
-    <th><%= records.income_id %> </th>
-    <th><%= records.expense_id %> </th>
-    <th><%= records.credit_amount %> </th>
-    <th><%= records.debit_amount %> </th>
-    <th><%= records.balance_amount %> </th>
-    <th><%= records.created_at %> </th>
-  </tr>
-  <% end %>
-</table>
+  <table border="2">
+    <tr>
+      <th>Income Id</th>
+      <th>Expense Id</th>
+      <th>Credit Amount</th>
+      <th>Debit Amount</th>
+      <th>Balance Amount</th>
+      <th>Created at</th>
+    </tr>
+    <% for records in @all_records %>
+    <tr>
+      <th><%= records.income_id %> </th>
+      <th><%= records.expense_id %> </th>
+      <th style="color: green"><%= records.credit_amount %> </th>
+      <th style="color: red"><%= records.debit_amount %> </th>
+      <%= content_tag(:th, records.balance_amount, :style=>(records.balance_amount < 0? "color: red" : "color: green")) %>
+      <th><%= records.created_at %> </th>
+    </tr>
+    <% end %>
+  </table><br />
+
+  <h6>*Amount in Rupees</h6>
+</div>
