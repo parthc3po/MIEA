@@ -57,6 +57,17 @@ blockquote {
 	font-style: italic;
 }
 
+th {
+    background-color: darkgreen;
+    color: gold;
+    padding-left: .5em;
+    padding-right: .5em;
+}
+
+td {
+    text-align: center;
+}
+
 ul {
 }
 
