@@ -17,7 +17,8 @@
           <%= content_tag(:li, link_to("Income", income_path), :class=>(request.path == income_path) ? "current_page_item" : nil)  %>
           <%= content_tag(:li, link_to("Expense", expense_path), :class=>(request.path == expense_path) ? "current_page_item" : nil)  %>
           <%= content_tag(:li, link_to("Balance", view_balance_book_path), :class=>(request.path == view_balance_book_path) ? "current_page_item" : nil)  %>
-          <li><a href="#">Contact</a></li>
+          <%= content_tag(:li, link_to("Twitter Data", twitterdata_path), :class=>(request.path == view_balance_book_path) ? "current_page_item" : nil)  %>
+          <%#*<li><a href="#">Contact</a></li>%>
         </ul>
       </div>
     </div>

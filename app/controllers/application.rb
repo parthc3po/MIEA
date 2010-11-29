@@ -2,6 +2,11 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+
+  require 'rubygems'
+  require 'hpricot'
+  require 'open-uri'
+
   include AuthenticatedSystem
   helper :all # include all helpers, all the time
 

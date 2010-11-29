@@ -43,6 +43,8 @@ ActionController::Routing::Routes.draw do |map|
    map.income '/income', :controller=>'home', :action=>'income'
    map.expense '/expense', :controller=>'home', :action=>'expense'
    map.view_balance_book '/view_balance_book', :controller=>'home', :action=>'view_balance_book'
+   map.twitterdata '/twitterdata', :controller=>'twitter_data', :action=>'index'
+   map.twitterview '/twitterview', :controller=>'twitter_data', :action=>'view'
 
   # See how all your routes lay out with "rake routes"
 
