@@ -5,10 +5,11 @@ class HomeController < ApplicationController
   def index
   end
 
-  def income    
+  def income
     @income = Income.new(params[:income])
     if request.post?
       @last_balance_record = BalanceBook.all
+      @income.created_at = params[:created_at]
       if @income.save
         @balance_book = BalanceBook.new
         @balance_book.income_id = @income.id
@@ -24,12 +25,14 @@ class HomeController < ApplicationController
       end
     end
     @all_income = Income.all
+#    render :text=>@all_income.inspect and return false
   end
 
   def expense
     @expense = Expense.new(params[:expense])
     if request.post?
       if @expense.save
+        @expense.created_at = params[:created_at]
         @last_book_record = BalanceBook.all
         @balance_book = BalanceBook.new
         @balance_book.expense_id = @expense.id

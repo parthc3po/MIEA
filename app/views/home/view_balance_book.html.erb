@@ -1,6 +1,7 @@
 <div id="content">
   <h3>Balance Book</h3><br />
 
+  <% @all_records.size > 0  %>
   <table border="1">
     <tr>
       <th>Income Id</th>
@@ -12,10 +13,10 @@
     </tr>
     <% for records in @all_records %>
     <tr>
-      <td><%= records.income_id %> </td>
-      <td><%= records.expense_id %> </td>
-      <td style="color: green"><%= records.credit_amount %> </td>
-      <td style="color: red"><%= records.debit_amount %> </td>
+      <td><%= (records.income_id.blank?) ? "-" : records.income_id %> </td>
+      <td><%= (records.expense_id.blank?) ? "-" : records.expense_id %> </td>
+      <td style="color: green"><%= (records.credit_amount.blank?) ? "-" : records.credit_amount %> </td>
+      <td style="color: red"><%= (records.debit_amount.blank?) ? "-" : records.debit_amount %> </td>
       <%= content_tag(:td, records.balance_amount, :style=>(records.balance_amount < 0? "color: red" : "color: green")) %>
       <td><%= records.created_at %> </td>
     </tr>

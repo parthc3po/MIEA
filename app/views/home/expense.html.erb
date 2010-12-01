@@ -4,38 +4,42 @@
 
   <% form_for :expense do |f| %>
 
-    <label>Enter Particular</label><br />
+    <label>Particular</label><br />
 
     <%= f.text_field :particular %><br /><br />
 
-    <label>Enter Description</label><br />
+    <label>Description</label><br />
 
     <%= f.text_area(:description, :size => "35x3") %><br /><br />
 
-    <label>Enter Amount</label><br />
+    <label>Date</label><br />
 
-    <%= f.text_field(:amount, :size=>6, :maxlength=>6) %><br /><br />
+    <%= calendar_date_select_tag :created_at, nil, :time=>true %><br /><br />
+
+    <label>Amount</label><br />
+
+    <%= f.text_field(:amount, :size=>6, :maxlength=>6) %><br />
+    <label style="font-size: smaller">*Amount in Rupees</label><br /><br />
 
     <%= f.submit "Save" %> <br /><br />
 
   <% end %>
 
-  <% if @all_expense %>
+  <% if @all_expense.size > 0 %>
     <table border="1">
       <tr>
-        <th>Particular</th>
-        <th>Description</th>
-        <th>Amount</th>
+        <%= content_tag(:th,"Particular")%>
+        <%= content_tag(:th,"Description")%>
+        <%= content_tag(:th,"Amount")%>
       </tr>
-    <% for all_expense in @all_expense %>
-      <tr>
-        <td><%=all_expense.particular%></td>
-        <td><%=all_expense.description%></td>
-        <td><%=all_expense.amount%></td>
-      </tr>
-    <% end %>
-    </table>
+      <% for all_expense in @all_expense %>
+        <tr>
+          <td><%=all_expense.particular%></td>
+          <td><%= (all_expense.description.strip.blank?) ? " " : all_expense.description %></td>
+          <td><%=all_expense.amount%></td>
+        </tr>
+      <% end %>
+   </table>
   <% end %><br />
 
-  <h6>*Amount in Rupees</h6>
 </div>
