@@ -6,6 +6,9 @@ class ApplicationController < ActionController::Base
   require 'rubygems'
   require 'hpricot'
   require 'open-uri'
+  require 'httparty'
+  require 'libxml'
+  require 'nokogiri'
 
   include AuthenticatedSystem
   helper :all # include all helpers, all the time

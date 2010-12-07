@@ -9,7 +9,7 @@ class HomeController < ApplicationController
     @income = Income.new(params[:income])
     if request.post?
       @last_balance_record = BalanceBook.all
-      @income.created_at = params[:created_at]
+      @income.created_at = params[:created_at].to_datetime
       if @income.save
         @balance_book = BalanceBook.new
         @balance_book.income_id = @income.id
@@ -19,6 +19,7 @@ class HomeController < ApplicationController
         else
           @balance_book.balance_amount = @last_balance_record.last.balance_amount + @income.amount
         end
+        @balance_book.created_at = @income.created_at
         if @balance_book.save
           redirect_to root_path
         end
@@ -32,12 +33,13 @@ class HomeController < ApplicationController
     @expense = Expense.new(params[:expense])
     if request.post?
       if @expense.save
-        @expense.created_at = params[:created_at]
+        @expense.created_at = params[:created_at].to_datetime
         @last_book_record = BalanceBook.all
         @balance_book = BalanceBook.new
         @balance_book.expense_id = @expense.id
         @balance_book.debit_amount = @expense.amount
         @balance_book.balance_amount = @last_book_record.last.balance_amount - @expense.amount
+        @balance_book.created_at = @expense.created_at
         if @balance_book.save
           redirect_to root_path
         end
@@ -50,5 +52,5 @@ class HomeController < ApplicationController
   def view_balance_book
     @all_records = BalanceBook.all        
   end
-
+  
 end
