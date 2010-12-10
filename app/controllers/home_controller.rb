@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
   before_filter :login_required
-  layout "application"
+  layout "application", :except=>"pdf_create"
+  prawnto :prawn => { :top_margin => 75 }
+
 
   def index
   end
@@ -51,6 +53,18 @@ class HomeController < ApplicationController
 
   def view_balance_book
     @all_records = BalanceBook.all        
+  end
+
+  def pdf_create
+
+    @incomes = Income.all
+#    @id = 1
+#    @incom = Income.first(:select=>"amount", :conditions=>"id=#{@id}").map(&:amount)
+#    render :text=>@incom.inspect and return false
+    respond_to do |format|
+      format.pdf { render :layout => false }
+    end
+    
   end
   
 end

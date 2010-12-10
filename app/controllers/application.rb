@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   require 'httparty'
   require 'libxml'
   require 'nokogiri'
+  require 'prawn'
 
   include AuthenticatedSystem
   helper :all # include all helpers, all the time
