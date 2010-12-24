@@ -42,6 +42,7 @@ doc\:plugins=Generate documentation for all installed plugins
 doc\:plugins\:calendar_date_select=Generate documentation for the calendar_date_select plugin
 doc\:plugins\:prawnto=Generate documentation for the prawnto plugin
 doc\:plugins\:restful-authentication=Generate documentation for the restful-authentication plugin
+doc\:plugins\:sexy_flash=Generate documentation for the sexy_flash plugin
 doc\:rails=Build the RDOC HTML Files
 doc\:reapp=Force a rebuild of the RDOC files
 doc\:rerails=Force a rebuild of the RDOC files
