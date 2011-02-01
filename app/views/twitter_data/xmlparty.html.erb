@@ -1,0 +1,13 @@
+<%= "xmlparty.html" %>
+
+<div id="content">
+  <h3>Income Tweets</h3>
+
+  <% for i in 0..2  %>
+    <%= image_tag @income_picture[i], :size=>"48x48" %>
+    <%#= image_tag @income_picture, :size=>"48x48" %>
+    <%= @income_name[i] %><br />
+    <%= @income_title[i] %><br /><br />
+  <% end %>
+  
+</div>

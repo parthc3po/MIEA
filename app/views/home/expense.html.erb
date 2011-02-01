@@ -35,7 +35,7 @@
       <% for all_expense in @all_expense %>
         <tr>
           <td><%=all_expense.particular%></td>
-          <td><%= (all_expense.description.strip.blank?) ? " " : all_expense.description %></td>
+          <td><%= (all_expense.description.strip.blank?) ? "-" : all_expense.description %></td>
           <td><%=all_expense.amount%></td>
         </tr>
       <% end %>

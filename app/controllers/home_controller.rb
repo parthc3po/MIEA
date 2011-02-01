@@ -23,6 +23,7 @@ class HomeController < ApplicationController
         end
         @balance_book.created_at = @income.created_at
         if @balance_book.save
+          flash[:notice] = "Data Saved !"
           redirect_to root_path
         end
       end
@@ -34,23 +35,23 @@ class HomeController < ApplicationController
   def expense
     @expense = Expense.new(params[:expense])
     if request.post?
-      flash[:notice] = "Data Saved !"
+      
       redirect_to root_path
-#      @expense.created_at = params[:created_at].to_datetime
-#      if @expense.save
-#        @last_book_record = BalanceBook.all
-#        @balance_book = BalanceBook.new
-#        @balance_book.expense_id = @expense.id
-#        @balance_book.debit_amount = @expense.amount
-#        @balance_book.balance_amount = @last_book_record.last.balance_amount - @expense.amount
-#        @balance_book.created_at = @expense.created_at
-#
-#        if @balance_book.save
-#          flash[:notice] = "Data Saved !"
-#          redirect_to root_path
-#        end
-#
-#      end
+      @expense.created_at = params[:created_at].to_datetime
+      if @expense.save
+        @last_book_record = BalanceBook.all
+        @balance_book = BalanceBook.new
+        @balance_book.expense_id = @expense.id
+        @balance_book.debit_amount = @expense.amount
+        @balance_book.balance_amount = @last_book_record.last.balance_amount - @expense.amount
+        @balance_book.created_at = @expense.created_at
+
+        if @balance_book.save
+          flash[:notice] = "Data Saved !"
+          redirect_to root_path
+        end
+
+      end
     end
     @all_expense = Expense.all
   end
@@ -95,7 +96,7 @@ class HomeController < ApplicationController
 #    render :text=>@incom.inspect and return false
     respond_to do |format|
       format.pdf { render :layout => false }
-    end    
+    end
         
   end
   

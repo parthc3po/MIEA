@@ -1,0 +1,16 @@
+
+<% form_for :data do |f| %>
+
+  <label>Enter Staring date</label><br />
+
+  <%#= f.text_field :start_date %>
+  <%= calendar_date_select_tag :start_date, nil %><br /><br />
+
+  <label>Enter Ending date</label><br />
+
+  <%#= f.text_field :end_date %>
+  <%= calendar_date_select_tag :end_date, nil %><br /><br />
+
+  <%= f.submit "Save" %>
+
+<% end %>

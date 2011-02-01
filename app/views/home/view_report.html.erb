@@ -1,0 +1,26 @@
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Income Id</th>
+    <th>Expense Id</th>
+    <th>Particular</th>
+    <th>Amount</th>
+    <th>Date</th>
+  </tr>
+
+<% for data in @bb %>
+
+  <tr>
+
+    <td><%= data.id %></td>
+    <td><%= (data.income_id != nil)? data.income_id : '-'%></td>
+    <td><%= (data.expense_id != nil)? data.expense_id : '-'%></td>
+    <td><%= (data.income_id)? data.income.particular : data.expense.particular %></td>
+    <td><%= data.balance_amount %></td>
+    <td><%= data.created_at.strftime("%d/%m/%Y") %></td>
+
+  </tr>
+
+<% end %>
+
+</table>

@@ -1,0 +1,23 @@
+<h3>Income Tweets</h3>
+
+<% for i in 0..2  %>
+  <%= image_tag @income_picture[i], :size=>"48x48" %>
+  <%= @income_name[i] %><br />
+  <%= @income_title[i] %><br /><br />
+<% end %>
+
+<%#= image_tag @income_picture, :size=>"48x48" %> <br/>
+<%#= @income_name %><br />
+<%#= @income_title %>
+
+<h3>Expense Tweets</h3>
+
+<% for i in 0..2  %>
+  <%= image_tag @expense_picture[i], :size=>"48x48" %>
+  <%= @expense_name[i] %><br />
+  <%= @expense_title[i] %><br /><br />
+<% end %>
+
+<%#= image_tag @expense_picture, :size=>"48x48" %> <br/>
+<%#= @expense_name %><br />
+<%#= @expense_title %>

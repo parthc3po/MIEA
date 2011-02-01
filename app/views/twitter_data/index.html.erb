@@ -1,0 +1,8 @@
+<h1>Twitter Data</h1>
+<div id="content">
+  <%= periodically_call_remote(:url => {:action=>"view"}, :update=>"results", :frequency=>20.0) %>
+
+  <div id="results">
+    <%= @screen_name %>
+  </div>
+</div>

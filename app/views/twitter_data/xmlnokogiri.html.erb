@@ -1,0 +1,23 @@
+<%= "xmlnokogiri.html" %> <br />
+
+<% for node in @node %>
+
+  <%= node %> <br /><br />
+
+<% end %>
+
+<div id="content">
+  <h3>Income Tweets</h3>
+
+  <% for i in 0..2  %>
+    <%#= image_tag @income_picture[i], :size=>"48x48" %>
+    <%#= image_tag @income_picture, :size=>"48x48" %>
+    <%= @income_name[i] %><br />
+    <%= @income_title[i+1] %><br /><br />
+  <% end %>
+
+  <%# for i in 1..3  %>
+    <%#= @income_title[i] %><br /><br />
+  <%# end %>
+
+</div>
